@@ -1,65 +1,43 @@
-package assignment6;
+package assignment7;
 import java.util.*;
 
 public class Main {
 
 	public static void main(String[] args) {
-		BTree bt = new BTree();
-		Scanner sc = new Scanner(System.in);
-		int x=1;
-		while (x==1)
-		{
-		    System.out.println("****************************************************");
-			System.out.println("Menu: ");
-			System.out.println("1.Create binary tree");
-			System.out.println("2.Recursive inorder traversal.");
-			System.out.println("3.Non-recursive inorder traversal.");
-			System.out.println("4.Recursive preorder traversal.");
-			System.out.println("5.Non-recursive preorder traversal.");
-			System.out.println("6.Recursive post order traversal.");
-			System.out.println("7.Non-recursive post order traversal.");
-			System.out.println("8.Exit.\n");
-			System.out.println("****************************************************\n");
-			System.out.print("Enter your choice: ");
-			int a =sc.nextInt();
-			System.out.println(" ");
-			
-			switch(a)
-			{
-			case 1: 
-				 bt.create();
-				 break;
-			 case 2:
-				 bt.recursive_Inorder(bt.root); 
-				 System.out.println();
-				 break;
-			 case 3:
-				 bt.nonRecursive_Inorder();
-				 System.out.println();
-				 break;
-			 case 4:
-				 bt.recursive_Preorder(bt.root);
-				 System.out.println();
-				 break;
-			 case 5:
-				 bt.nonRecursive_Preorder();
-				 System.out.println();
-				 break;
-			 case 6:
-				 bt.recursive_Postorder(bt.root);
-				 System.out.println();
-				 break;
-			 case 7: 
-				 bt.nonRecursive_Postorder();
-				 System.out.println();
-				 break;
-			 case 8:
-				 System.out.println("***********************************\nPROGRAM ENDED\n");
-				 System.exit(0);
-				 break;
-			 default:
-				 System.out.println("INVALID CHOICE.\n");	  
-			}
-		}		
-	}
+		BinarySearchTree tree = new BinarySearchTree();      // object of BinarySearchTree class
+        Scanner sc = new Scanner(System.in);
+        int ch;
+        do{
+            System.out.println("\n*********************************************\n\t\tMENU\n*********************************************\nEnter 1 to create a dictionary\n" +
+                               "Enter 2 to search a word\n"  +  
+                               "Enter 3 to update dictionary\n" +
+                               "Enter 4 to delete a word\n" +
+                               "Enter 0 to quit.\n*********************************************");
+            System.out.println("Enter the choice: ");
+            ch = sc.nextInt();
+            sc.nextLine();
+
+            if (ch == 0)
+                break;
+
+            switch(ch){
+                case 1 :
+                    tree.create();         // calling create function
+                    break;
+                case 2: 
+                    tree.search();         // calling search function
+                    break;
+                case 3:
+                    tree.update();         // calling update function
+                    break;
+                case 4:
+                    tree.delete();         // calling delete function
+                    break;
+                default:
+                    System.out.println("Invalid Option");
+                    break;
+            }
+        } while(ch!= 0);
+        sc.close();
+    }
 }
