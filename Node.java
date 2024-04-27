@@ -1,11 +1,12 @@
-package assignment8;
+package mock_ds;
 
 public class Node {
 	
 	int data;
 	Node next;
-	Node(int Data){
-	data=Data;
-	next=null;
+	
+	Node(int data){
+		this.data = data;
+		this.next = null;	
 	}
 }
