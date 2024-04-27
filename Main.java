@@ -1,43 +1,38 @@
-package assignment7;
+package assignment8;
 import java.util.*;
 
 public class Main {
 
 	public static void main(String[] args) {
-		BinarySearchTree tree = new BinarySearchTree();      // object of BinarySearchTree class
-        Scanner sc = new Scanner(System.in);
-        int ch;
-        do{
-            System.out.println("\n*********************************************\n\t\tMENU\n*********************************************\nEnter 1 to create a dictionary\n" +
-                               "Enter 2 to search a word\n"  +  
-                               "Enter 3 to update dictionary\n" +
-                               "Enter 4 to delete a word\n" +
-                               "Enter 0 to quit.\n*********************************************");
-            System.out.println("Enter the choice: ");
-            ch = sc.nextInt();
-            sc.nextLine();
+		Scanner sc = new Scanner(System.in);
+		Graph g = new Graph();
+		int ch=0;
+		do {
+		System.out.println("\n***************MENU***************\n1)DFS in adjecency matrix" + "\n2)BFS using adjecency list\n0)Exit\nEnter your choice : ");
 
-            if (ch == 0)
-                break;
+		ch=sc.nextInt();
 
-            switch(ch){
-                case 1 :
-                    tree.create();         // calling create function
-                    break;
-                case 2: 
-                    tree.search();         // calling search function
-                    break;
-                case 3:
-                    tree.update();         // calling update function
-                    break;
-                case 4:
-                    tree.delete();         // calling delete function
-                    break;
-                default:
-                    System.out.println("Invalid Option");
-                    break;
-            }
-        } while(ch!= 0);
-        sc.close();
-    }
+		switch(ch) {
+			case 1:
+				g.createUsingAdjMat();
+				g.displayAdjMat();
+				System.out.println("Enter starting vertex:");
+				int str1=sc.nextInt();
+				g.dfs(str1);
+				break;
+		
+			case 2:
+				g.create_list();
+				g.display_list();
+				System.out.println("Enter starting vertex:");
+				int str2=sc.nextInt();
+				g.bfs(str2);
+				break;
+		
+			case 0:
+				System.out.println("Thank you!!!");
+			}
+		} while(ch!=0);
+		sc.close();
+	}
 }
